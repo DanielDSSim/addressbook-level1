@@ -476,6 +476,18 @@ public class AddressBook {
     }
 
     /**
+     * Changes format of Person Name.
+     *
+     * @param personName String for the person's name.
+     * @return String containing normalised person's name.
+     */
+    private static String normaliseName(String personName) {
+        String normalisedPersonName = personName.toLowerCase();
+        normalisedPersonName = normalisedPersonName.substring(0,1).toUpperCase() + normalisedPersonName.substring(1);
+        return normalisedPersonName;
+    }
+
+    /**
      * Retrieves all persons in the full model whose names contain some of the specified keywords.
      *
      * @param keywords for searching
