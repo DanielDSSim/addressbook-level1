@@ -948,7 +948,7 @@ public class AddressBook {
             return Optional.empty();
         }
         final String[] decodedPerson = makePersonFromData(
-                extractNameFromPersonString(encoded),
+                normaliseName(extractNameFromPersonString(encoded)),
                 extractPhoneFromPersonString(encoded),
                 extractEmailFromPersonString(encoded)
         );
