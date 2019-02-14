@@ -449,7 +449,8 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeFindPersons(String commandArgs) {
-        final Set<String> keywords = extractKeywordsFromFindPersonArgs(commandArgs);
+        String personsName = normaliseName(commandArgs);
+        final Set<String> keywords = extractKeywordsFromFindPersonArgs(personsName);
         final ArrayList<String[]> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         showToUser(personsFound);
         return getMessageForPersonsDisplayedSummary(personsFound);
@@ -473,6 +474,33 @@ public class AddressBook {
      */
     private static Set<String> extractKeywordsFromFindPersonArgs(String findPersonCommandArgs) {
         return new HashSet<>(splitByWhitespace(findPersonCommandArgs.trim()));
+    }
+
+    /**
+     * Changes format of Person Name.
+     *
+     * @param personName String for the person's name.
+     * @return String containing normalised person's name.
+     */
+    private static String normaliseName(String personName) {
+        String[] brokenDownName = personName.split(" ", 0);
+        String normalisedPersonName = "";
+        for(String word : brokenDownName) {
+            normalisedPersonName = normalisedPersonName.concat(normaliseWord(word) + " ");
+        }
+        return normalisedPersonName;
+    }
+
+    /**
+     * Changes format of a one word Person Name.
+     *
+     * @param personName String for the person's name.
+     * @return String containing normalised person's name.
+     */
+    private static String normaliseWord(String personName) {
+        String normalisedPersonName = personName.toLowerCase();
+        normalisedPersonName = normalisedPersonName.substring(0,1).toUpperCase() + normalisedPersonName.substring(1);
+        return normalisedPersonName;
     }
 
     /**
@@ -920,7 +948,7 @@ public class AddressBook {
             return Optional.empty();
         }
         final String[] decodedPerson = makePersonFromData(
-                extractNameFromPersonString(encoded),
+                normaliseName(extractNameFromPersonString(encoded)),
                 extractPhoneFromPersonString(encoded),
                 extractEmailFromPersonString(encoded)
         );
