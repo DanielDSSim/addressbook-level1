@@ -275,6 +275,14 @@
 || 
 || 0 persons found!
 || ===================================================
+|| Enter command: || [Command entered:  add Daniel Sim p/92206105 e/danieldssim@gmail.com]
+|| New person added: Daniel Sim, Phone: 92206105, Email: danieldssim@gmail.com
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Daniel Sim  Phone Number: 92206105  Email: danieldssim@gmail.com
+|| 
+|| 1 persons found!
+|| ===================================================
 || Enter command: || [Command entered:  exit]
 || Exiting Address Book... Good bye!
 || ===================================================
