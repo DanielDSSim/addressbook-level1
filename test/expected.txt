@@ -280,7 +280,7 @@
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Daniel Sim  Phone Number: 92206105  Email: danieldssim@gmail.com
-|| 
+||
 || 1 persons found!
 || ===================================================
 || Enter command: || [Command entered:  exit]
